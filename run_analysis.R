@@ -4,11 +4,11 @@ library(tidyr)
 # PART 1 AND 3 AND 4
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
 y_train <- read.table("UCI HAR Dataset/train/y_train.txt")
-x_train <- read.table("UCI HAR Dataset/train/X_train.txt",header=TRUE)
-x_test <- read.table("UCI HAR Dataset/test/X_test.txt",header=TRUE)
-y_test <- read.table("UCI HAR Dataset/test/y_test.txt",header=TRUE)
-subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt",header=TRUE)
-subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt",header=TRUE)
+x_train <- read.table("UCI HAR Dataset/train/X_train.txt")
+x_test <- read.table("UCI HAR Dataset/test/X_test.txt")
+y_test <- read.table("UCI HAR Dataset/test/y_test.txt")
+subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt")
+subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt")
 y_train_edited <- y_train %>%
     unlist(y_train) %>%
     gsub(pattern = 1, replacement = "WALKING")%>%
