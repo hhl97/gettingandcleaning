@@ -1,7 +1,7 @@
 library(dplyr)
 library(tidyr)
 
-# PART 1 AND 3 AND 4
+# PART 1: STEPS 1 AND 3 AND 4
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
 y_train <- read.table("UCI HAR Dataset/train/y_train.txt")
 x_train <- read.table("UCI HAR Dataset/train/X_train.txt")
@@ -33,10 +33,10 @@ combined_df <- rbind(train_df,test_df)
 features <- read.table("UCI HAR Dataset/features.txt")
 colnames(combined_df)[3:ncol(combined_df)] <- features[,2]
 
-# PART 2
+# PART 2: STEP 2
 combined_df2 <- combined_df[,c(1,2,grep(pattern = "std\\(\\)|mean\\(\\)", names(combined_df)))]
 
-# PART 5
+# PART 3: STEP 5
 summary_table <- combined_df2 %>%
     group_by(Identifier, Activity) %>%
     summarise_all(mean)
